@@ -1,16 +1,33 @@
 <?php
-/**
- * @file
- */
 
 namespace CultuurNet\SymfonySecurityJWT\Authentication;
 
+use Lcobucci\JWT\Token as Jwt;
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
 
 class JWTUserToken extends AbstractToken
 {
+    /**
+     * @var Jwt
+     */
+    private $jwt;
+
+    /**
+     * @param Jwt $jwt
+     * @param bool $authenticated
+     */
+    public function __construct(Jwt $jwt, $authenticated = false)
+    {
+        parent::__construct();
+        $this->setAuthenticated($authenticated);
+        $this->jwt = $jwt;
+    }
+
+    /**
+     * @return Jwt
+     */
     public function getCredentials()
     {
-        // TODO: Implement getCredentials() method.
+        return $this->jwt;
     }
 }
