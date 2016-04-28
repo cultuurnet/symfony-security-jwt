@@ -53,7 +53,7 @@ class JWTAuthenticationProvider implements AuthenticationProviderInterface
 
         if (!$this->decoderService->validateData($jwt)) {
             throw new AuthenticationException(
-                "Token claims are invalid. This means the token is expired, not yet valid, or it's issuer is incorrect."
+                "Token claims validation failed. This most likely means the token is expired."
             );
         }
 
