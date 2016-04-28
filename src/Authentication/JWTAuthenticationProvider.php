@@ -57,6 +57,20 @@ class JWTAuthenticationProvider implements AuthenticationProviderInterface
             );
         }
 
+        $requiredClaims = [
+            'uid',
+            'nick',
+            'email',
+        ];
+
+        foreach ($requiredClaims as $claim) {
+            if (!$jwt->hasClaim($claim)) {
+                throw new AuthenticationException(
+                    "Token is missing a {$claim} claim."
+                );
+            }
+        }
+
         return new JWTUserToken($jwt, true);
     }
 }
