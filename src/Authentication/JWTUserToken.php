@@ -1,11 +1,11 @@
 <?php
 
-namespace CultuurNet\SymfonySecurityJWT\Authentication;
+namespace CultuurNet\SymfonySecurityJwt\Authentication;
 
 use Lcobucci\JWT\Token as Jwt;
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
 
-class JWTUserToken extends AbstractToken
+class JwtUserToken extends AbstractToken
 {
     /**
      * @var Jwt

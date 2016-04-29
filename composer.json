@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CultuurNet\\SymfonySecurityJWT\\": "src/"
+            "CultuurNet\\SymfonySecurityJwt\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CultuurNet\\SymfonySecurityJWT\\": "tests/"
+            "CultuurNet\\SymfonySecurityJwt\\": "tests/"
         }
     },
     "minimum-stability": "dev",

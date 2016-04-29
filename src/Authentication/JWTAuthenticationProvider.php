@@ -1,13 +1,13 @@
 <?php
 
-namespace CultuurNet\SymfonySecurityJWT\Authentication;
+namespace CultuurNet\SymfonySecurityJwt\Authentication;
 
 use CultuurNet\UDB3\Jwt\JwtDecoderService;
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
-class JWTAuthenticationProvider implements AuthenticationProviderInterface
+class JwtAuthenticationProvider implements AuthenticationProviderInterface
 {
     /**
      * @var JwtDecoderService
@@ -28,7 +28,7 @@ class JWTAuthenticationProvider implements AuthenticationProviderInterface
      */
     public function supports(TokenInterface $token)
     {
-        return $token instanceof JWTUserToken;
+        return $token instanceof JwtUserToken;
     }
 
     /**
@@ -36,7 +36,7 @@ class JWTAuthenticationProvider implements AuthenticationProviderInterface
      */
     public function authenticate(TokenInterface $token)
     {
-        /* @var JWTUserToken $token */
+        /* @var JwtUserToken $token */
         if (!$this->supports($token)) {
             throw new AuthenticationException(
                 "Token type " . get_class($token) . " not supported."
@@ -71,6 +71,6 @@ class JWTAuthenticationProvider implements AuthenticationProviderInterface
             }
         }
 
-        return new JWTUserToken($jwt, true);
+        return new JwtUserToken($jwt, true);
     }
 }

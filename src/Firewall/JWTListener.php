@@ -1,8 +1,8 @@
 <?php
 
-namespace CultuurNet\SymfonySecurityJWT\Firewall;
+namespace CultuurNet\SymfonySecurityJwt\Firewall;
 
-use CultuurNet\SymfonySecurityJWT\Authentication\JWTUserToken;
+use CultuurNet\SymfonySecurityJwt\Authentication\JwtUserToken;
 use CultuurNet\UDB3\Jwt\JwtDecoderService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Firewall\ListenerInterface;
 use ValueObjects\String\String as StringLiteral;
 
-class JWTListener implements ListenerInterface
+class JwtListener implements ListenerInterface
 {
     /**
      * @var TokenStorageInterface
@@ -58,7 +58,7 @@ class JWTListener implements ListenerInterface
         }
 
         $jwt = $this->decoderService->parse(new StringLiteral($jwtString));
-        $token = new JWTUserToken($jwt);
+        $token = new JwtUserToken($jwt);
 
         try {
             $authenticatedToken = $this->authenticationManager->authenticate($token);
