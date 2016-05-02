@@ -2,7 +2,7 @@
 
 namespace CultuurNet\SymfonySecurityJwt\Authentication;
 
-use CultuurNet\UDB3\Jwt\JwtDecoderService;
+use CultuurNet\UDB3\Jwt\JwtDecoderServiceInterface;
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
@@ -10,15 +10,15 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 class JwtAuthenticationProvider implements AuthenticationProviderInterface
 {
     /**
-     * @var JwtDecoderService
+     * @var JwtDecoderServiceInterface
      */
     private $decoderService;
 
     /**
-     * @param JwtDecoderService $decoderService
+     * @param JwtDecoderServiceInterface $decoderService
      */
     public function __construct(
-        JwtDecoderService $decoderService
+        JwtDecoderServiceInterface $decoderService
     ) {
         $this->decoderService = $decoderService;
     }
