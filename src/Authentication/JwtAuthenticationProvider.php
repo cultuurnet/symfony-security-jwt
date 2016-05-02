@@ -15,12 +15,27 @@ class JwtAuthenticationProvider implements AuthenticationProviderInterface
     private $decoderService;
 
     /**
+     * @var array
+     */
+    private $requiredClaims;
+
+    /**
      * @param JwtDecoderService $decoderService
+     * @param string[] $requiredClaims
      */
     public function __construct(
-        JwtDecoderService $decoderService
+        JwtDecoderService $decoderService,
+        array $requiredClaims = []
     ) {
         $this->decoderService = $decoderService;
+        $this->requiredClaims = $requiredClaims;
+
+        $stringClaims = array_filter($this->requiredClaims, 'is_string');
+        if (count($stringClaims) !== count($requiredClaims)) {
+            throw new \InvalidArgumentException(
+                "All required claims should be strings."
+            );
+        }
     }
 
     /**
@@ -57,13 +72,7 @@ class JwtAuthenticationProvider implements AuthenticationProviderInterface
             );
         }
 
-        $requiredClaims = [
-            'uid',
-            'nick',
-            'email',
-        ];
-
-        foreach ($requiredClaims as $claim) {
+        foreach ($this->requiredClaims as $claim) {
             if (!$jwt->hasClaim($claim)) {
                 throw new AuthenticationException(
                     "Token is missing a {$claim} claim."
