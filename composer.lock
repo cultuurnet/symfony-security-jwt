@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ceb0d1454aeecc4fac43a5fa7d30b771",
+    "hash": "af707fd1e87fa2a0d0f4e59351eb2257",
     "content-hash": "74e2c3c037b516c4795ee28ea473ed60",
     "packages": [
         {
@@ -40,12 +40,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cultuurnet/udb3-jwt.git",
-                "reference": "2259b4ebbb8bdcf1b11311001672aeb3953733c8"
+                "reference": "0f3c2e3155c326e2b6b9f3a60df2a0fdf92df70e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cultuurnet/udb3-jwt/zipball/2259b4ebbb8bdcf1b11311001672aeb3953733c8",
-                "reference": "2259b4ebbb8bdcf1b11311001672aeb3953733c8",
+                "url": "https://api.github.com/repos/cultuurnet/udb3-jwt/zipball/0f3c2e3155c326e2b6b9f3a60df2a0fdf92df70e",
+                "reference": "0f3c2e3155c326e2b6b9f3a60df2a0fdf92df70e",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 }
             ],
             "description": "Provides JWT service classes",
-            "time": "2016-04-28 07:40:01"
+            "time": "2016-05-02 13:56:20"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1104,16 +1104,16 @@
         },
         {
             "name": "symfony/security",
-            "version": "v2.7.11",
+            "version": "v2.7.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "d41391616712f23df16277d674280cea6cb5f139"
+                "reference": "5b789c31e791c6e499644f203b51e8302e467039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/d41391616712f23df16277d674280cea6cb5f139",
-                "reference": "d41391616712f23df16277d674280cea6cb5f139",
+                "url": "https://api.github.com/repos/symfony/security/zipball/5b789c31e791c6e499644f203b51e8302e467039",
+                "reference": "5b789c31e791c6e499644f203b51e8302e467039",
                 "shasum": ""
             },
             "require": {
@@ -1180,7 +1180,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-25 15:52:47"
+            "time": "2016-04-09 10:56:56"
         },
         {
             "name": "symfony/serializer",
