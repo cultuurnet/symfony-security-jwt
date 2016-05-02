@@ -3,7 +3,7 @@
 namespace CultuurNet\SymfonySecurityJwt\Firewall;
 
 use CultuurNet\SymfonySecurityJwt\Authentication\JwtUserToken;
-use CultuurNet\UDB3\Jwt\JwtDecoderService;
+use CultuurNet\UDB3\Jwt\JwtDecoderServiceInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -26,19 +26,19 @@ class JwtListener implements ListenerInterface
     private $authenticationManager;
 
     /**
-     * @var JwtDecoderService
+     * @var JwtDecoderServiceInterface
      */
     private $decoderService;
 
     /**
      * @param TokenStorageInterface $tokenStorage
      * @param AuthenticationManagerInterface $authenticationManager
-     * @param JwtDecoderService $decoderService
+     * @param JwtDecoderServiceInterface $decoderService
      */
     public function __construct(
         TokenStorageInterface $tokenStorage,
         AuthenticationManagerInterface $authenticationManager,
-        JwtDecoderService $decoderService
+        JwtDecoderServiceInterface $decoderService
     ) {
         $this->tokenStorage = $tokenStorage;
         $this->authenticationManager = $authenticationManager;
@@ -79,7 +79,7 @@ class JwtListener implements ListenerInterface
         $authorization = $request->headers->get('authorization');
         $bearerPrefix = 'Bearer ';
 
-        if (!$authorization && strpos($authorization, $bearerPrefix) !== 0) {
+        if (!$authorization || strpos($authorization, $bearerPrefix) !== 0) {
             return null;
         }
 
