@@ -52,7 +52,7 @@ class JwtListenerTest extends \PHPUnit_Framework_TestCase
             $this->jwtDecoderService
         );
 
-        $this->getResponseEvent = $this->createMock(GetResponseEvent::class, [], [], '', false);
+        $this->getResponseEvent = $this->createMock(GetResponseEvent::class);
     }
 
     /**
