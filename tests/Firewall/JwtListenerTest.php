@@ -42,9 +42,9 @@ class JwtListenerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->tokenStorage = $this->getMock(TokenStorageInterface::class);
-        $this->authenticationManager = $this->getMock(AuthenticationManagerInterface::class);
-        $this->jwtDecoderService = $this->getMock(JwtDecoderServiceInterface::class);
+        $this->tokenStorage = $this->createMock(TokenStorageInterface::class);
+        $this->authenticationManager = $this->createMock(AuthenticationManagerInterface::class);
+        $this->jwtDecoderService = $this->createMock(JwtDecoderServiceInterface::class);
 
         $this->listener = new JwtListener(
             $this->tokenStorage,
@@ -52,7 +52,7 @@ class JwtListenerTest extends \PHPUnit_Framework_TestCase
             $this->jwtDecoderService
         );
 
-        $this->getResponseEvent = $this->getMock(GetResponseEvent::class, [], [], '', false);
+        $this->getResponseEvent = $this->createMock(GetResponseEvent::class);
     }
 
     /**

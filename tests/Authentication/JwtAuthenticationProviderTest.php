@@ -21,7 +21,7 @@ class JwtAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->decoderService = $this->getMock(JwtDecoderServiceInterface::class);
+        $this->decoderService = $this->createMock(JwtDecoderServiceInterface::class);
 
         $this->authenticationProvider = new JwtAuthenticationProvider(
             $this->decoderService
