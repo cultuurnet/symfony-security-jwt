@@ -55,8 +55,8 @@ class JwtAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
     {
         $token = new AnonymousToken('key', 'user');
 
-        $this->setExpectedException(
-            AuthenticationException::class,
+        $this->expectException(AuthenticationException::class);
+        $this->expectExceptionMessage(
             "Token type Symfony\\Component\\Security\\Core\\Authentication\\Token\\AnonymousToken not supported."
         );
 
@@ -76,8 +76,8 @@ class JwtAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
             ->with($jwt)
             ->willReturn(false);
 
-        $this->setExpectedException(
-            AuthenticationException::class,
+        $this->expectException(AuthenticationException::class);
+        $this->expectExceptionMessage(
             "Token signature verification failed. The token is likely forged or manipulated."
         );
 
@@ -102,8 +102,8 @@ class JwtAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
             ->with($jwt)
             ->willReturn(false);
 
-        $this->setExpectedException(
-            AuthenticationException::class,
+        $this->expectException(AuthenticationException::class);
+        $this->expectExceptionMessage(
             "Token claims validation failed. This most likely means the token is expired."
         );
 
@@ -133,8 +133,8 @@ class JwtAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
             ->with($jwt)
             ->willReturn(false);
 
-        $this->setExpectedException(
-            AuthenticationException::class,
+        $this->expectException(AuthenticationException::class);
+        $this->expectExceptionMessage(
             "Token is missing one of its required claims."
         );
 
