@@ -6,7 +6,7 @@
     "authors": [],
     "require": {
         "symfony/security": "~3.4.0",
-        "cultuurnet/udb3-jwt": "~0.1"
+        "cultuurnet/udb3-jwt": "dev-feature/symfony-3"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.7",
