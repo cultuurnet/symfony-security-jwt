@@ -5,7 +5,7 @@
     "license": "Apache-2.0",
     "authors": [],
     "require": {
-        "symfony/security": "~2.7.3",
+        "symfony/security": "~3.4.0",
         "cultuurnet/udb3-jwt": "~0.1"
     },
     "require-dev": {
